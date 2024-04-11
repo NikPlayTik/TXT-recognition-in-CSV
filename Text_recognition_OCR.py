@@ -14,7 +14,10 @@ file_path = filedialog.askopenfilename()
 img = Image.open(file_path)
 
 pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
+
+# Установите параметр языка
+tessdata_dir_config = r'--tessdata-dir ".\Tesseract-OCR\tessdata" --oem 3 --psm 6 -l eng+rus'
 # Распознавание текста на изображении
-text = pytesseract.image_to_string(img)
+text = pytesseract.image_to_string(img, config=tessdata_dir_config)
 
 print(text)
