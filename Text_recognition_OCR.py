@@ -8,7 +8,10 @@ root = tk.Tk()
 root.withdraw()  # Скрытие окна Tkinter
 
 # Открытие диалога выбора файлов
-file_path = filedialog.askopenfilename()
+def open_file():
+    return filedialog.askopenfilename()
+
+file_path = open_file()
 
 # Загрузка изображения
 img = Image.open(file_path)
