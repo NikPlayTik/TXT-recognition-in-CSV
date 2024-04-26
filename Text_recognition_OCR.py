@@ -8,19 +8,16 @@ root = tk.Tk()
 root.withdraw()  # Скрытие окна Tkinter
 
 # Открытие диалога выбора файлов
-def open_file():
-    return filedialog.askopenfilename()
-
-file_path = open_file()
+file_path = filedialog.askopenfilename()
 
 # Загрузка изображения
 img = Image.open(file_path)
 
-pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OC\tesseract.exe'
 
 # Установите параметр языка
 tessdata_dir_config = r'--tessdata-dir ".\Tesseract-OCR\tessdata" --oem 3 --psm 6 -l eng+rus'
 # Распознавание текста на изображении
 text = pytesseract.image_to_string(img, config=tessdata_dir_config)
 
-print(text)
+print(text) 
